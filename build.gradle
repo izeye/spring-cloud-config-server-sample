@@ -1,0 +1,42 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+        maven { url "http://repo.spring.io/libs-release" }
+        maven { url "http://repo.spring.io/libs-milestone" }
+        maven { url "http://repo.spring.io/snapshot" }
+        maven { url "http://repo.spring.io/plugins-release" }
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+sourceCompatibility = 1.8
+
+version = '1.0'
+
+repositories {
+    jcenter()
+    maven { url "http://repo.spring.io/libs-release" }
+    maven { url "http://repo.spring.io/libs-milestone" }
+    maven { url "http://repo.spring.io/snapshot" }
+    mavenLocal()
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter")
+    compile("org.springframework.cloud:spring-cloud-config-server:1.1.1.RELEASE")
+
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.13'
+}
