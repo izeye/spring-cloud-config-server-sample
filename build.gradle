@@ -31,6 +31,8 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.springframework.cloud:spring-cloud-config-server:3.0.0")
 
+    implementation("ch.qos.logback:logback-access")
+
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
